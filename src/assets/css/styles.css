@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+.masthead {
+  position: relative;
+  background: url("https://ca-times.brightspotcdn.com/dims4/default/1a1d9ea/2147483647/strip/true/crop/1515x852+0+74/resize/1200x675!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fec%2F48%2F75fb9d684e1b9673520e911a8a3c%2Fun-destino-para-gozar-958578.JPG")
+    no-repeat;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom: 12rem;
+}
+
+html,
+body {
+  background: #fff;
+}
