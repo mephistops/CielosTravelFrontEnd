@@ -1,11 +1,14 @@
 import { Col, Container, Dropdown, Row } from 'react-bootstrap'
+import { BaseLink, useRoute } from 'react-router5'
 
-export function Header () {
+export function Header() {
+  const { router } = useRoute()
+
   return (
     <Container className='text-dark bg-white'>
       <Row>
         <Col md={2} sm={7} xs={7} className=''>
-          <img src='https://github.com/mephistops/cms/raw/master/src/assets/img/logo.png' width={200} />
+          <img src='https://github.com/mephistops/CielosTravelFrontEnd/raw/master/src/assets/img/logo.png' width={200} />
         </Col>
 
         <Col md={2} sm={5} xs={5} className='offset-md-8'>
@@ -25,8 +28,10 @@ export function Header () {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href='#/action-1'>Iniciar sesión</Dropdown.Item>
-                  <Dropdown.Item href='#/action-2'>Registrarse</Dropdown.Item>
+                  <Dropdown.Item>
+                    Login
+                  </Dropdown.Item>
+                  <Dropdown.Item href='/action-2'>Registrarse</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </li>

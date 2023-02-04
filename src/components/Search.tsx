@@ -19,7 +19,18 @@ export function Search () {
 
   useEffect(() => {
     types().then((res) => {
-      setItemsMenu(res.data)
+      let  items = res.data.filter((e:itemMenuType) => e.show !== false)
+      items.sort(function (a: itemMenuType, b: itemMenuType) {
+        if (a.id > b.id) {
+          return 1
+        }
+        if (a.id < b.id) {
+          return -1
+        }
+
+        return 0
+      })
+      setItemsMenu(items)
     })
   }, [])
 
@@ -64,9 +75,6 @@ export function Search () {
       case 4:
         return <Botes />
 
-      case 5:
-        return <Traslados />
-
       case 6:
         return <Experiencias />
 
@@ -88,7 +96,7 @@ export function Search () {
                 {
                   itemsMenu.map((element: itemMenuType, index: number) => {
                     return (
-                      <li key={index} className={`nav-item mx-1 ${element.show ? '' : 'd-none'}`}>
+                      <li key={index} className={`nav-item mx-1`}>
                         <div
                           className={`btn rounded-pill ${element.active ? 'btn-warning text-white' : 'btn-light text-primary'}`}
                           onClick={() => changeItemMenu(element.id)}

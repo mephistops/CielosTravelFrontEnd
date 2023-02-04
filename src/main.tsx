@@ -1,14 +1,16 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import {
-  RouterProvider
-} from 'react-router-dom'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
-import router from './routes/router'
 
-createRoot(document.getElementById('root') as HTMLElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+import { RouterProvider } from 'react-router5'
+import createRouter from "./routes/create-router"
+import Router from './routes/router'
+
+const router = createRouter()
+
+router.start(() => {
+  createRoot(document.getElementById('root') as HTMLElement).render(
+    <RouterProvider router={router}>
+      <Router />
+    </RouterProvider>,
+  )
+})

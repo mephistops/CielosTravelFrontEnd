@@ -1,21 +1,16 @@
-import { createBrowserRouter } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
+import { useRouteNode } from 'react-router5'
+import ErrorPage from '../pages/ErrorPage'
+import Home from '../pages/Home'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/dashboard',
-    element: <Dashboard />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-])
+function Router() {
+    const { route } = useRouteNode('')
+    const topRouteName = route.name.split('.')[0]
 
-export default router
+    if (topRouteName === 'home') {
+        return <Home />
+    }
+
+    return <ErrorPage />
+}
+
+export default Router
